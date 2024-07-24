@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Spreadsheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Wednesday Golf Scores</h1>
+    <table id="content">
+        <col>
+        <col>
+        <col>
+        <colgroup span="10"></colgroup>
+        <tr>
+            <th class="player-name">Names</th>
+            <th class="average-score" player="-1">Average of Top 5 Scores</th>
+            <th colspan="11">Dates</th>
+        </tr>
+        <tr>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td><button onclick="AddWeek()">Add Week</button></td>
+            <td type="date" key="0" class="changeable">-</td>
+            <td type="date" key="1" class="changeable">-</td>
+            <td type="date" key="2" class="changeable">-</td>
+            <td type="date" key="3" class="changeable">-</td>
+            <td type="date" key="4" class="changeable">-</td>
+            <td type="date" key="5" class="changeable">-</td>
+            <td type="date" key="6" class="changeable">-</td>
+            <td type="date" key="7" class="changeable">-</td>
+            <td type="date" key="8" class="changeable">-</td>
+            <td type="date" key="9" class="changeable">-</td>
+            
+        </tr>
+        <tr id="new-player-input">
+            <td>
+                <div class="input-wrapper">
+                    <input id="name" type="text" placeholder="New Player Name">
+                    <button onclick="AddPlayer()">&check;</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <script src="spreadsheet.js"></script>
+</body>
+</html>

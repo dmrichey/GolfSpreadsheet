@@ -1,0 +1,29 @@
+table { 
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-color: black;
+
+    text-align: center;
+}
+
+.empty {
+    background-color: black;
+    max-width: 20%;
+}
+
+.player-name, .average-score {
+    max-width: 20%;
+}
+
+.changeable {
+    width: 5%;
+}
+
+input {
+    max-width: 75%;
+    min-width: 64px;
+}
