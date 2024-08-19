@@ -149,9 +149,23 @@ function EnableInput(e) {
 
         this.innerHTML = `
                 <input id=${newId} type="text" player=${playerIndex} key=${dateIndex} placeholder=${currentValue}>
+                <button input-id=${newId} onclick="ClearCell(${newId})">&#x1f5d1;</button>
                 <button input-id=${newId} onclick="UpdateCell(${newId})">&check;</button>
         `;
     }    
+}
+
+function ClearCell(inputElement) {
+    let playerIndex = inputElement.getAttribute("player");
+    let dateIndex = inputElement.getAttribute("key");
+    let parentElement = inputElement.parentElement;
+    
+    parentElement.innerHTML = "-";
+
+    players[playerIndex].scores[dateIndex].value = -99;
+
+    SaveData();
+    UpdateAverages();
 }
 
 
@@ -175,8 +189,13 @@ function UpdateCell(inputElement) {
 
     if (playerIndex != "null") {
         //console.log("Update Player");
-        players[playerIndex].scores[dateIndex].value = inputValue;
-        parentElement.innerHTML = inputValue;
+        var score = Math.floor(Number(inputValue));
+        if (score !== Infinity && String(score) === inputValue && score >= 1) {
+            players[playerIndex].scores[dateIndex].value = inputValue;
+            parentElement.innerHTML = inputValue;
+        } else {
+            parentElement.innerHTML = inputElement.getAttribute("placeholder");
+        }        
     } else if (validDate == true) {
         //console.log("Update Date");
         dates[dateIndex] = inputValue;
